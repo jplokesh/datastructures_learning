@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdint.h>
 //#include "./array_100000.h"
-#include "./array_10000.h"
+//#include "./array_10000.h"
 
 
 
@@ -13,6 +13,7 @@ int BinarySearch (int a[], int low, int high, int key)
         return low;
 
     mid = low + ((high - low) / 2);
+    printf("LOW :%d MID:%d HIGH:%d\n",low,mid,high);
 
     if (key > a[mid])
         return BinarySearch (a, mid + 1, high, key);
@@ -31,8 +32,8 @@ BinaryInsertionSort (int a[], int n)
     int tmp;
 
     for (i = 1; i < n; i++) {
+	printf("Key:%d  Position:%d \n",a[i],ins);
         ins = BinarySearch (a, 0, i, a[i]);
-//	printf("Key:%d  Position:%d \n",a[i],ins);
 	
         tmp = a[i];
         for (j = i - 1; j >= ins; j--)
@@ -78,16 +79,16 @@ void main()
 
 //uint32_t ua[10] = {9,8,7,6,5,4,3,2,1,0};
 //uint32_t ua[10] = {9,1,2,3,4,5,6,7,8,0};
-//uint32_t ua[10] = { 7,5,3,1,6,4,2,8,9,0};
+uint32_t ua[10] = { 7,5,3,1,6,4,2,8,9,0};
 uint32_t sa[10];
 uint32_t nelements, i;
 
-	//nelements = sizeof(ua)/sizeof(int);
-	nelements = sizeof(array)/sizeof(int);
+	nelements = sizeof(ua)/sizeof(int);
+	//nelements = sizeof(array)/sizeof(int);
 	printf("N elements in array = %d\n",nelements);
 
 	//insertion_sort(array,nelements);
-        BinaryInsertionSort(array,nelements);
+        BinaryInsertionSort(ua,nelements);
 	#if 0
 	printf("Before insertion sort\n");
 	for( i = 0; i < nelements;i++)
