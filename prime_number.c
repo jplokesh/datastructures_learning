@@ -19,8 +19,8 @@
 int main(int argc , char *argv[] )
 {
 
-uint32_t *array,*ptr;
-uint32_t i,j,k,sqt,n;
+uint32_t array[10000];
+uint32_t i,j,k,sqt,n =0;
 
 
 	printf(" Input the series of N primes to be retrieved \n");
@@ -35,11 +35,9 @@ uint32_t i,j,k,sqt,n;
 	printf("Prime to be calculated is :%d\n",n);
 
 #if 1
-	ptr = (uint32_t *)(malloc(sizeof(sizeof(uint32_t) * (n+1))));
-	array = ptr;
 
-	if ( array == NULL){
-		printf("OOps memory alloca failed ! \n");
+	if ( n >= 10000){
+		printf("OOps no memory more than 9999  ! \n");
 		return 0;
 	}
 
@@ -72,7 +70,6 @@ uint32_t i,j,k,sqt,n;
 		printf("\n");
 	 }
 
-	free(ptr);
 
 #endif
 
